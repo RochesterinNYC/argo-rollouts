@@ -34,7 +34,7 @@ This example highlights:
 * The ability to parameterize the analysis
 * Delay starting the analysis run until step 3 (Set Weight 40%)
 
-```yaml tab="Rollout"
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -62,7 +62,7 @@ spec:
       - pause: {duration: 10m}
 ```
 
-```yaml tab="AnalysisTemplate"
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
@@ -178,7 +178,7 @@ Starting in version `0.9.0` a Rollout can reference a Cluster scoped AnaylsisTem
 rather than duplicating them in every namespace. Use the field
 `clusterScope: true` to reference a ClusterAnalysisTemplate instead of an AnalysisTemplate.
 
-```yaml tab="Rollout"
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -199,7 +199,7 @@ spec:
             value: guestbook-svc.default.svc.cluster.local
 ```
 
-```yaml tab="ClusterAnalysisTemplate"
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: ClusterAnalysisTemplate
 metadata:
@@ -232,7 +232,7 @@ templates together. The controller combines the `metrics` and `args` fields of a
 
 
 
-```yaml tab="Rollout"
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -250,7 +250,7 @@ spec:
           value: guestbook-svc.default.svc.cluster.local
 ```
 
-```yaml tab="AnalysisTemplate"
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
@@ -298,7 +298,7 @@ spec:
           ))
 ```
 
-```yaml tab="AnalysisRun"
+```yaml
 # NOTE: The rollouts controller will create this resource
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisRun
@@ -613,7 +613,7 @@ This example demonstrates:
 * The ability to reference and supply pod-template-hash to an AnalysisRun
 * Kayenta metrics
 
-```yaml tab="Rollout"
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -643,7 +643,7 @@ spec:
                 podTemplateHashValue: Latest
 ```
 
-```yaml tab="AnalysisTemplate"
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
@@ -678,7 +678,7 @@ spec:
             end: "{{args.end-time}}"
 ```
 
-```yaml tab="Experiment"
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Experiment
 name:
